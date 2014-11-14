@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>hr-time-js | Simple human-readable timestamps</title>
+        <meta charset="utf-8">
+        
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+        </style>
+        
+        <script src="/hr-time.js"></script>
+    </head>
+    <body>
+        <h1>hr-time.js</h1>
+        <h2>Simple human-readable timestamps</h2>
+        
+        <section>
+            <h3>Demo</h3>
+            <input type="date" id="date-input">
+            <input type="time" id="time-input">
+            
+            <output></output>
+        </section>
+        
+        <script>
+            var updateHRTime = function(){
+                timestamp = new HRTime(new Date(dateInput.value + " " + timeInput.value));
+                updateDisplay();
+            }
+
+            var updateDisplay = function(){
+                outputElem.textContent = timestamp.time + " " + timestamp.unit + "s ago";
+            }
+
+            var timestamp;
+
+            var dateInput = document.getElementById("date-input");
+            var timeInput = document.getElementById("time-input");
+
+            var outputElem = document.getElementsByTagName("output")[0];
+
+            dateInput.value = "2014-11-13";
+            timeInput.value = "20:05"
+
+            dateInput.addEventListener("input", updateHRTime);
+            timeInput.addEventListener("input", updateHRTime);
+
+            setInterval(updateHRTime, 1000);
+        </script>
+    </body>
+</html>
