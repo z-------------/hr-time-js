@@ -27,7 +27,7 @@ Simple human-readable timestamps
 
 ```javascript
 new HRTime(new Date("13 Nov 2014 20:05 GMT+0800"), {
-    now: new Date("13 Nov 2014 20:55 GMT+0800),
+    now: new Date("13 Nov 2014 20:55 GMT+0800"),
     roundDown: true
 });
   
