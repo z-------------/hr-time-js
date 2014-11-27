@@ -24,7 +24,8 @@ var HRTime = function(then, options) {
         return false;
     }
     
-    var delta = now.getTime() - then.getTime();
+    var d = now.getTime() - then.getTime();
+    var delta = Math.abs(d);
     
     var times = {
         millisecond: roundFunc(delta),
@@ -43,7 +44,8 @@ var HRTime = function(then, options) {
 
     var returnVal = {
         time: times.millisecond,
-        unit: "millisecond"
+        unit: "millisecond",
+        future: false
     };
 
     timesKeys.forEach(function(key){
@@ -52,6 +54,8 @@ var HRTime = function(then, options) {
             returnVal.unit = key;
         }
     });
+    
+    if (d < 0) returnVal.future = true;
 
     return returnVal;
 };

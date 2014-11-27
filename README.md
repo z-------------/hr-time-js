@@ -33,7 +33,8 @@ new HRTime(new Date("13 Nov 2014 20:05 GMT+0800"), {
   
 // returns
 {
-    time: 50
+    time: 50,
     unit: "minute",
+    future: false
 }
 ```
